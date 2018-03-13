@@ -4,12 +4,11 @@ namespace Matrizes
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            Random rdn = new Random();
             Console.WriteLine("\nTrabalho de Programação: Matrizes");
-            int[,] matriz;
             int selecao;
-            int ordemMatriz = 0;
             do
             {
                 Console.WriteLine("\nMenu:");
@@ -22,56 +21,77 @@ namespace Matrizes
                 Console.WriteLine("\n7) Produto de duas matrizes do tipo a(mxp) e b(pxn):");
 
                 Console.WriteLine("\n\nDigite a opção desejada:");
-                selecao = Int32.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
-                Console.WriteLine("\n\nDigite a oordem da matriz:");
-                ordemMatriz = Int32.Parse(Console.ReadLine());
-                matriz = new int[ordemMatriz,ordemMatriz];
+                selecao = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+
 
                 switch (selecao)
                 {
                     case 1:
+                        Console.WriteLine("\n\nDigite a ordem da matriz:");
+                        var ordemMatriz = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+                        var matriz = new int[ordemMatriz, ordemMatriz];
+                        Console.Write("\n\nMatriz Diagonal:\n\n");
+                        for (var i = 0; i < ordemMatriz; i++)
                         {
-                            Console.Write("\n\nMatriz Diagonal:\n\n");
-                            for (int i = 0; i < ordemMatriz; i++)
+                            for (var j = 0; j < ordemMatriz; j++)
                             {
-                                for (int j = 0; j < ordemMatriz; j++)
-                                {
-                                    if (i == j)
-                                        matriz[i, j] = RetornaNumero();
-                                    else
-                                        matriz[i, j] = 0;
-                                    Console.Write(matriz[i, j] + " ");
-                                }
-                                Console.Write("\n");
+                                if (i == j)
+                                    matriz[i, j] = rdn.Next(0, 10);
+                                else
+                                    matriz[i, j] = 0;
+                                Console.Write(matriz[i, j] + " ");
                             }
-                            break;
-                        }
-                    case 2:
-                        {
-                            break;
-                        }
-                    case 3:
-                        {
-                            break;
-                        }
-                    case 4:
-                        {
-                            break;
-                        }
-                    case 5:
-                        {
-                            break;
-                        }
-                    case 6:
-                        {
-                            break;
-                        }
-                    case 7:
-                        {
-                            break;
-                        }
-                }
 
+                            Console.Write("\n");
+                        }
+
+                        break;
+                    case 2:
+                        Console.WriteLine("\n\nDigite a ordem da matriz:");
+                        ordemMatriz = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+                        matriz = new int[ordemMatriz, ordemMatriz];
+                        Console.Write("\n\nMatriz Identidade:\n\n");
+                        for (var i = 0; i < ordemMatriz; i++)
+                        {
+                            for (var j = 0; j < ordemMatriz; j++)
+                            {
+                                if (i == j)
+                                    matriz[i, j] = 1;
+                                else
+                                    matriz[i, j] = 0;
+                                Console.Write(matriz[i, j] + " ");
+                            }
+
+                            Console.Write("\n");
+                        }
+
+                        break;
+                    case 3:
+                        Console.WriteLine("\n\nDigite a ordem da matriz:");
+                        ordemMatriz = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+                        matriz = new int[ordemMatriz, ordemMatriz];
+                        Console.Write("\n\nMatriz Simetrica:\n\n");
+                        for (var i = 0; i < ordemMatriz; i++)
+                        {
+                            for (var j = 0; j < ordemMatriz; j++)
+                            {
+                                matriz[i, j] = rdn.Next(0, 10);
+                                Console.Write(matriz[i, j] + " ");
+                            }
+
+                            Console.Write("\n");
+                        }
+
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
+                }
             } while (selecao != 0);
 
 
@@ -79,16 +99,9 @@ namespace Matrizes
             Console.ReadKey();
         }
 
-        private static int RetornaNumero()
-        {
-            Random rdn = new Random();
-            int num = rdn.Next(1, 9);
-            return num;
-        }
-
         public bool VerificaMatriz(int m, int n)
         {
-            bool verifica = m == n;
+            var verifica = m == n;
             return verifica;
         }
     }
