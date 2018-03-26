@@ -68,7 +68,7 @@ CREATE TABLE Funcao
 (
     FuncaoID INT NOT NULL,
     Nome NVARCHAR(45),
-    Gratific NVARCHAR(45)/*Duvida do Tipo*/,
+    Gratific decimal/*Duvida do Tipo*/,
     PRIMARY KEY (FuncaoID)
 );
 
