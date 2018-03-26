@@ -7,7 +7,7 @@ USE loja;
 CREATE TABLE Pais
 (
     PaisID INT NOT NULL,
-    Sigla NVARCHAR(3),
+    Sigla CHAR(3),
     Nome NVARCHAR(45),
     PRIMARY KEY (PaisID)
 );
@@ -16,7 +16,7 @@ CREATE TABLE Cidade
 (
     CidadeID INT NOT NULL,
     Nome NVARCHAR(45),
-    UF NVARCHAR(2),
+    UF CHAR(2),
     PaisID INT,
     PRIMARY KEY (CidadeID),
     FOREIGN KEY (PaisID) REFERENCES Pais(PaisID)
