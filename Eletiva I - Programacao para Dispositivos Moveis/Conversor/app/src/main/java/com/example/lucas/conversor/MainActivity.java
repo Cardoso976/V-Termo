@@ -9,6 +9,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -28,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 temp.setGrausCelcius(progress);
-                String texto = Integer.toString(progress-50)+" ºC";
+                String texto = Double.toString(progress-50)+" ºC";
                 txtCelcius.setText(texto);
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar seekBar) {
-                temp.setGrausCelcius(0);
-                String texto = Integer.toString(temp.getGrausCelcius())+" ºC";
+                temp.setGrausCelcius(0.0);
+                String texto = formatarValor(temp.getGrausCelcius())+" ºC";
                 txtCelcius.setText(texto);
                 txtFahrenheit.setText("ºF: Toque em Converter");
             }
@@ -51,9 +52,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 temp.converterCelsiusToFahrenheit();
-                String texto = Integer.toString(temp.getGrausFahrenheit())+" ºF";
+                String texto = formatarValor(temp.getGrausFahrenheit())+" ºF";
                 txtFahrenheit.setText(texto);
             }
         });
+    }
+
+    private String formatarValor(double valor){
+     return String.format(Locale.FRANCE, "%.2f", valor);
     }
 }

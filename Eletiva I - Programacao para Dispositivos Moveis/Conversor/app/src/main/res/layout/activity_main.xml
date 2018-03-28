@@ -36,9 +36,8 @@
         android:id="@+id/txtFahrenheit"
         android:layout_width="203dp"
         android:layout_height="47dp"
-        android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/txtCelcius"
-        android:layout_marginBottom="218dp"
+        android:layout_below="@+id/seekBar"
         android:text=" Grau Fahrenheit"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,7 +51,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="117dp"
         android:text="Converter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/txtFahrenheit"
@@ -65,7 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="83dp"
+        android:layout_marginTop="97dp"
         android:text="-50 ºC"
         android:textSize="18sp" />
 </RelativeLayout>
