@@ -76,6 +76,6 @@ CREATE TABLE adicionais(
     sequencia INT NOT NULL,
     descricao NVARCHAR(50) NOT NULL,
     valor NUMERIC(10,2) NOT NULL,
-    PRIMARY KEY(sequencia),
+    PRIMARY KEY(sequencia, locacao),
     FOREIGN KEY(locacao) REFERENCES devolucao(locacao)
 );
