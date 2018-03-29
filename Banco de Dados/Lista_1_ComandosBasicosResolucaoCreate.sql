@@ -18,8 +18,7 @@ CREATE TABLE Cidade
     Nome NVARCHAR(45),
     UF CHAR(2),
     PaisID INT,
-    PRIMARY KEY (CidadeID),
-    FOREIGN KEY (PaisID) REFERENCES Pais(PaisID)
+    PRIMARY KEY (CidadeID)
 );
 
 CREATE TABLE Tipo
@@ -34,7 +33,7 @@ CREATE TABLE Cliente
 (
     ClienteID INT NOT NULL,
     Nome NVARCHAR(45),
-    TipoID INT,
+    Tipo NVARCHAR(20),
     Contato NVARCHAR(45),
     Cargo NVARCHAR(45),
     Endereco NVARCHAR(90),
@@ -43,9 +42,7 @@ CREATE TABLE Cliente
     Fone NVARCHAR(45),
     Fax NVARCHAR(45),
     Obs NVARCHAR(45),
-    PRIMARY KEY (ClienteID),
-    FOREIGN KEY (CidadeID) REFERENCES Cidade(CidadeID),
-    FOREIGN KEY (TipoID) REFERENCES Tipo(TipoID)
+    PRIMARY KEY (ClienteID)    
 );
 
 CREATE TABLE Produto
@@ -60,15 +57,14 @@ CREATE TABLE Produto
     Estmin INT,
     TipoID INT,
     Situacao NVARCHAR(45),
-    PRIMARY KEY (ProdutoID),
-    FOREIGN key (TipoID) REFERENCES Tipo(TipoID)
+    PRIMARY KEY (ProdutoID)    
 );
 
 CREATE TABLE Funcao
 (
     FuncaoID INT NOT NULL,
     Nome NVARCHAR(45),
-    Gratific decimal/*Duvida do Tipo*/,
+    Gratific decimal,
     PRIMARY KEY (FuncaoID)
 );
 
@@ -77,7 +73,7 @@ CREATE TABLE Setor
     SetorID INT NOT NULL,
     Nome NVARCHAR(45),
     Ramal NVARCHAR(45),
-    Chefe NVARCHAR(45),
+    Chefe INT NOT NULL,
     PRIMARY KEY (SetorID)
 );
 
@@ -87,10 +83,10 @@ CREATE TABLE Funcionario
     Nome NVARCHAR(45),
     Sexo NVARCHAR(45),
     Estcivil NVARCHAR(45),
-    RG NVARCHAR(45),
-    CPF NVARCHAR(45),
+    RG NVARCHAR(50),
+    CPF NVARCHAR(10),
     Datanasc DATETIME,
-    Naturalidade NVARCHAR(45),
+    Naturalidade NVARCHAR(6),
     Dataadm DATETIME,
     Endereco NVARCHAR(45),
     Complemento NVARCHAR(45),
@@ -104,10 +100,7 @@ CREATE TABLE Funcionario
     Salario DECIMAL,
     Email NVARCHAR(45),
     Obs NVARCHAR(45),
-    PRIMARY KEY (FuncionarioID),
-    FOREIGN KEY (CidadeID) REFERENCES Cidade(CidadeID),
-    FOREIGN KEY (FuncaoID) REFERENCES Funcao(FuncaoID),
-    FOREIGN KEY (SetorID) REFERENCES Setor(SetorID)
+    PRIMARY KEY (FuncionarioID)        
 );
 
 CREATE TABLE Pedido
@@ -118,21 +111,16 @@ CREATE TABLE Pedido
     DataPedido DATETIME,
     DataFatura DATETIME,
     Via NVARCHAR(45),
-    Frete NVARCHAR(45),/*Duvida Tipo*/
-    PRIMARY KEY (PedidoID),
-    FOREIGN KEY (ClienteID) REFERENCES Cliente(ClienteID),
-    FOREIGN KEY (Vendedor) REFERENCES Funcionario(FuncionarioID)
+    Frete NVARCHAR(45),
+    PRIMARY KEY (PedidoID)   
 );
 
 CREATE TABLE Itens
 (
-    -- ItensID INT NOT NULL,
     PedidoID INT NOT NULL,
     ProdutoID INT NOT NULL,
     Preco decimal,
     Quant INT,
     Desconto DECIMAL,
-    PRIMARY KEY (PedidoID),
-    -- FOREIGN KEY (PedidoID) REFERENCES Pedido(PedidoID),
-    FOREIGN KEY (ProdutoID) REFERENCES Produto(ProdutoID)
+    PRIMARY KEY (PedidoID, ProdutoID)    
 );
