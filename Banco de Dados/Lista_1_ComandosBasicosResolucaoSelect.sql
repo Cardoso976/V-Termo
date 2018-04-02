@@ -13,3 +13,41 @@ FROM Produto;
 -- d) --
 SELECT TOP 3 *
 FROM Cliente INNER JOIN Cidade ON Cliente.CidadeID = Cidade.CidadeID;
+
+-- e) --
+SELECT Nome, MonthName(Datanasc)
+FROM Funcionario;
+
+-- f) --
+-- Não Funciona no MYSQL --
+SELECT TOP 50 PERCENT *
+FROM Pedido;
+-- Funciona --
+-- SELECT * --
+-- FROM Pedido --
+-- ORDER BY DataPedido DESC --
+-- LIMIT 2; --
+
+-- g) --
+SELECT Descricao, ROUND(Custo, 1) AS Custo, ROUND(Venda, 1) AS Venda
+From Produto;
+
+-- h) --
+SELECT LEFT(Sigla, 1)
+FROM Setor;
+
+-- i) --
+SELECT DAYNAME(NOW());
+
+-- j) --
+SELECT p.PedidoID as Cod, c.Nome as Cliente, f.Nome as Vendedor, p.DataPedido, p.DataFatura, p.Via, p.Frete
+FROM Pedido as p INNER JOIN Cliente as c ON p.ClienteID = c.ClienteID
+                 INNER JOIN Funcionario as f ON p.Vendedor = f.FuncionarioID
+WHERE p.DataPedido > DATE_SUB(NOW(), INTERVAL 6 MONTH);
+
+-- k) --
+SELECT p.PedidoID as Cod, c.Nome as Cliente, f.Nome as Vendedor, p.DataPedido, p.DataFatura, p.Via, p.Frete
+FROM Pedido as p INNER JOIN Cliente as c ON p.ClienteID = c.ClienteID
+                 INNER JOIN Funcionario as f ON p.Vendedor = f.FuncionarioID
+ORDER BY p.DataPedido DESC
+LIMIT 1;

@@ -71,6 +71,7 @@ CREATE TABLE Funcao
 CREATE TABLE Setor
 (
     SetorID INT NOT NULL,
+    Sigla char(6),
     Nome NVARCHAR(45),
     Ramal NVARCHAR(45),
     Chefe INT NOT NULL,

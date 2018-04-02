@@ -57,14 +57,14 @@ VALUES
     (2, 'Vendedor', 0.3),
     (3, 'Operador', 0.1);
 
-INSERT INTO Setor
-    (SetorID, Nome, Ramal, Chefe)
+INSERT INTO SETOR
+	(SetorID, Sigla, Nome, Ramal, Chefe)
 VALUES
-    (1, "SETOR 1", "1221", 4),
-    (2, "SETOR 2", "1224", 2),
-    (3, "SETOR 3", "1223", 3),
-    (4, "SETOR 4", "1222", 4);
-
+	(1, "S1", "SETOR 1", "1221", 4),
+	(2, "S2", "SETOR 2", "1224", 2),
+	(3, "S2", "SETOR 3", "1223", 3),
+	(4, "S3", "SETOR 4", "1222", 4);
+     
 INSERT INTO Funcionario
     (FuncionarioID, Nome, Sexo, Estcivil, RG, CPF, Datanasc, Naturalidade, Dataadm, Endereco, Complemento, Bairro, CidadeID, CEP, Fone, Celular, FuncaoID, SetorID, Salario, Email, Obs)
 VALUES
@@ -79,10 +79,10 @@ VALUES
 INSERT INTO PEDIDO
     (PedidoID, ClienteID, Vendedor, DataPedido, DataFatura, Via, Frete)
 VALUES
-    (1, 2, 1, "2017-20-01", "2017-22-01", "VIA 1", "FRETE1"),
-    (2, 1, 2, "2017-25-01", "2017-28-01", "VIA 1", "FRETE1"),
-    (3, 3, 3, "2017-10-02", "2017-15-02", "VIA 1", "FRETE1"),
-    (4, 4, 1, "2017-18-02", "2017-22-02", "VIA 1", "FRETE1");
+    (1, 2, 1, "2017-01-20", "2017-01-22", "VIA 1", "FRETE1"),
+    (2, 1, 2, "2017-01-25", "2017-01-28", "VIA 3", "FRETE2"),
+    (3, 3, 3, "2017-11-10", "2017-11-11", "VIA 4", "FRETE3"),
+    (4, 4, 1, "2018-02-18", "2018-02-20", "VIA 2", "FRETE2");
 
 INSERT INTO ITENS
     (PedidoID, ProdutoID, Preco, Quant, Desconto)
