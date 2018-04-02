@@ -62,3 +62,18 @@ FROM Proposta
 GROUP BY ID_NF;
 
 -- B --
+-- a) --
+SELECT h.MAT
+FROM Historico AS h INNER JOIN Turma AS t ON h.TurmaID = t.TurmaID
+WHERE h.Nota < 5.0 AND t.Cod_Disc LIKE 'BD';
+
+-- b) --
+SELECT h.MAT, ROUND(AVG(h.Nota),2) AS MediaNotas
+FROM Historico AS h INNER JOIN Turma AS t ON h.TurmaID = t.TurmaID
+WHERE t.Cod_Disc LIKE 'POO'
+GROUP BY h.MAT;
+
+SELECT h.MAT, h.Nota
+FROM Historico AS h INNER JOIN Turma AS t ON h.TurmaID = t.TurmaID
+WHERE t.Cod_Disc LIKE 'POO'
+GROUP BY h.MAT;
