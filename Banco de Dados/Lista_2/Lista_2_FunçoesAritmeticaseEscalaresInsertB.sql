@@ -24,13 +24,13 @@ VALUES
     (192011, "DIEGO OLIVEIRA", "AVENIDA ROBERTO FREIRE", "NATAL");
 
 INSERT INTO Turma
-    (TurmaID, Cod_Disc, Cod_Turma, Cod_Prof, Ano, Horario)
+    (Cod_Disc, Cod_Turma, Cod_Prof, Ano, Horario)
 VALUES
-    (1, "BD", 1, 212131, 2015, "11H-12H"),
-    (2, "BD", 2, 212131, 2015, "13H-14H"),
-    (3, "POO", 1, 192011, 2015, "08H-09H"),
-    (4, "WEB", 1, 192011, 2015, "07H-08H"),
-    (5, "ENG", 1, 122135, 2015, "10H-11H");
+    ("BD", 1, 212131, 2015, "11H-12H"),
+    ("BD", 2, 212131, 2015, "13H-14H"),
+    ("POO", 1, 192011, 2015, "08H-09H"),
+    ("WEB", 1, 192011, 2015, "07H-08H"),
+    ("ENG", 1, 122135, 2015, "10H-11H");
 
 INSERT INTO Historico
     (MAT, TurmaID, Frequencia, Nota)

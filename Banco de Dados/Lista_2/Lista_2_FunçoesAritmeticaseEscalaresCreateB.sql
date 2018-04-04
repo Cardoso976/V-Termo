@@ -38,14 +38,17 @@ CREATE TABLE Turma
     Cod_Prof INT NOT NULL,
     Ano INT NOT NULL,
     Horario NVARCHAR(20),
-    PRIMARY KEY(TurmaID)    
+    PRIMARY KEY(Cod_Prof, Cod_Disc)   
 );
 
 CREATE TABLE Historico
-(
-    HistoricoID INT NOT NULL AUTO_INCREMENT,
+(    
+    HistoricoID INT NOT NULL,
     MAT INT NOT NULL,
-    TurmaID INT NOT NULL,
+    Cod_Turma INT NOT NULL, 
+    Cod_Disc CHAR(6) NOT NULL,    
+    Cod_Prof INT NOT NULL,
+    Ano INT NOT NULL,
     Frequencia INT NOT NULL,
     Nota DECIMAL(4,2),
     PRIMARY KEY(HistoricoID)
