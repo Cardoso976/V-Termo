@@ -31,25 +31,23 @@ CREATE TABLE Professores
 );
 
 CREATE TABLE Turma
-(   
-    TurmaID INT NOT NULL,
-    Cod_Turma INT NOT NULL, 
-    Cod_Disc CHAR(6) NOT NULL,    
+( 
+    Cod_Disc CHAR(6) NOT NULL, 
+    Cod_Turma INT NOT NULL,        
     Cod_Prof INT NOT NULL,
     Ano INT NOT NULL,
     Horario NVARCHAR(20),
-    PRIMARY KEY(Cod_Prof, Cod_Disc)   
+    PRIMARY KEY(Cod_Disc, Cod_Turma, Cod_Prof, Ano)
 );
 
 CREATE TABLE Historico
-(    
-    HistoricoID INT NOT NULL,
+(
     MAT INT NOT NULL,
-    Cod_Turma INT NOT NULL, 
     Cod_Disc CHAR(6) NOT NULL,    
+    Cod_Turma INT NOT NULL,     
     Cod_Prof INT NOT NULL,
     Ano INT NOT NULL,
     Frequencia INT NOT NULL,
     Nota DECIMAL(4,2),
-    PRIMARY KEY(HistoricoID)
+    PRIMARY KEY(MAT, Cod_Disc, Cod_Turma,  Cod_Prof, Ano)
 );

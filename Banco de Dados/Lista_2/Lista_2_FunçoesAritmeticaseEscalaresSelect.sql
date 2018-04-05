@@ -63,17 +63,24 @@ GROUP BY ID_NF;
 
 -- B --
 -- a) --
-SELECT h.MAT
-FROM Historico AS h INNER JOIN Turma AS t ON h.TurmaID = t.TurmaID
-WHERE h.Nota < 5.0 AND t.Cod_Disc LIKE 'BD';
+SELECT MAT
+FROM Historico
+WHERE Cod_Disc LIKE 'BD' AND Ano = 2015 AND Nota < 5;
 
 -- b) --
-SELECT h.MAT, ROUND(AVG(h.Nota),2) AS MediaNotas
-FROM Historico AS h INNER JOIN Turma AS t ON h.TurmaID = t.TurmaID
-WHERE t.Cod_Disc LIKE 'POO'
-GROUP BY h.MAT;
+SELECT MAT, ROUND(AVG(Nota),2) AS MediaNotas
+FROM Historico
+WHERE Cod_Disc LIKE 'POO' AND Ano = 2015
+GROUP BY MAT;
 
-SELECT h.MAT, h.Nota
-FROM Historico AS h INNER JOIN Turma AS t ON h.TurmaID = t.TurmaID
-WHERE t.Cod_Disc LIKE 'POO'
-GROUP BY h.MAT;
+-- c) --
+SELECT MAT, ROUND(AVG(Nota),2) AS MediaNotas
+FROM Historico
+WHERE Cod_Disc LIKE 'POO' AND Ano = 2015
+GROUP BY MAT
+HAVING AVG(Nota) > 6;
+
+-- d) --
+SELECT COUNT(MAT) AS AlunosQueNaoSaoDeNatal
+FROM Alunos
+WHERE Cidade NOT LIKE 'Natal';
