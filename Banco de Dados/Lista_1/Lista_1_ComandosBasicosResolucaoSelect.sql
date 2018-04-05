@@ -51,3 +51,16 @@ FROM Pedido as p INNER JOIN Cliente as c ON p.ClienteID = c.ClienteID
                  INNER JOIN Funcionario as f ON p.Vendedor = f.FuncionarioID
 ORDER BY p.DataPedido DESC
 LIMIT 1;
+
+-- l) --
+ALTER TABLE Funcionario
+ADD premiado DECIMAL;
+SELECT Nome, premiado AS Bônus
+From Funcionario;
+
+-- m) --
+SELECT DAYNAME(NOW() + INTERVAL 10 DAY) AS HojeMaisDezDiasNome;
+
+-- n) --
+SELECT ROUND(((preco*preco)*preco),2) AS PrecoAoCubo
+FROM Itens;

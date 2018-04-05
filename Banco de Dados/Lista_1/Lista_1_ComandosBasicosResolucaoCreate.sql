@@ -51,8 +51,8 @@ CREATE TABLE Produto
     Nome NVARCHAR(45),
     Descricao NVARCHAR(45),
     Apresent NVARCHAR(45),
-    Venda DECIMAL,
-    Custo DECIMAL,
+    Venda DECIMAL(9,2),
+    Custo DECIMAL(9,2),
     Quantest INT,
     Estmin INT,
     TipoID INT,
@@ -64,7 +64,7 @@ CREATE TABLE Funcao
 (
     FuncaoID INT NOT NULL,
     Nome NVARCHAR(45),
-    Gratific decimal,
+    Gratific decimal(9,2),
     PRIMARY KEY (FuncaoID)
 );
 
@@ -98,7 +98,7 @@ CREATE TABLE Funcionario
     Celular NVARCHAR(45),
     FuncaoID INT,
     SetorID INT,
-    Salario DECIMAL,
+    Salario DECIMAL(9,2),
     Email NVARCHAR(45),
     Obs NVARCHAR(45),
     PRIMARY KEY (FuncionarioID)        
@@ -120,8 +120,8 @@ CREATE TABLE Itens
 (
     PedidoID INT NOT NULL,
     ProdutoID INT NOT NULL,
-    Preco decimal,
+    Preco decimal(9,2),
     Quant INT,
-    Desconto DECIMAL,
+    Desconto DECIMAL(9,2),
     PRIMARY KEY (PedidoID, ProdutoID)    
 );
