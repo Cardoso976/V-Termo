@@ -1,0 +1,38 @@
+1. Uma organização a seguinte faixa de IPs de rede 198.10.10.64/26 de seu provedor de internet e irá implantar o VLSM. No projeto a rede deverá ser dividida em 4 blocos de endereços de igual tamanho. 
+
+Especifique as 4 sub-redes, definindo os endereços de rede, broadcast e disponíveis para hosts de cada rede.
+
+
+/26  = 255.255.255.192
+IPs desta rede =  64 IPs
+
+198.10.10.64 Rede
+198.10.10.127 Bcast
+
+#1 16 IPs
+Rede     198.10.10.64
+Broacast 198.10.10.79
+Máscara  255.255.255.240 = /28
+Server 198.10.10.65
+Disponívei para os hosts 198.10.10.66 198.10.10.78
+
+#2 16 IPs
+Rede     198.10.10.80
+Broacast 198.10.10.95
+Máscara  255.255.255.240 = /28
+Server 198.10.10.81
+Disponívei para os hosts 198.10.10.82 198.10.10.94
+
+#3 16 IPs
+Rede     198.10.10.96
+Broacast 198.10.10.111
+Máscara  255.255.255.240 = /28
+Server 198.10.10.97
+Disponívei para os hosts 198.10.10.98 198.10.10.110
+
+#4 16 IPs
+Rede     198.10.10.112
+Broacast 198.10.10.127
+Máscara  255.255.255.240 = /28
+Server 198.10.10.113
+Disponívei para os hosts 198.10.10.114 198.10.10.126
