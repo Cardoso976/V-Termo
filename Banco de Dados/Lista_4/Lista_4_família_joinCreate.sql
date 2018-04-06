@@ -11,13 +11,15 @@ CREATE TABLE RamoAtividade
     PRIMARY KEY(RamoID)
 );
 
-CREATE TABLE TipoAssinante(
+CREATE TABLE TipoAssinante
+(
     TipoAssinanteID INT NOT NULL,
     Descricao NVARCHAR(50),
     PRIMARY KEY(TipoAssinanteID)
 );
 
-CREATE TABLE Municipio(
+CREATE TABLE Municipio
+(
     MunicipioID INT NOT NULL,
     Descricao NVARCHAR(50),
     PRIMARY KEY(MunicipioID)
@@ -32,7 +34,8 @@ CREATE TABLE Assinante
     PRIMARY KEY(AssinanteID)
 );
 
-CREATE TABLE Endereco (
+CREATE TABLE Endereco
+(
     EnderecoID INT NOT NULL,
     Descricao NVARCHAR(20),
     Complemento NVARCHAR(10),
@@ -43,7 +46,8 @@ CREATE TABLE Endereco (
     PRIMARY KEY(EnderecoID)
 );
 
-CREATE TABLE Telefone(
+CREATE TABLE Telefone
+(
     TelefoneID INT NOT NULL,
     DDD CHAR(6),
     NumeroTelefone NVARCHAR(9),
