@@ -23,12 +23,9 @@ GROUP BY a.Nome
 HAVING COUNT(*) > 1;
 
 -- e) --
-SELECT a.Nome, t.DDD, t.NumeroTelefone, ta.Descricao
-FROM Assinante AS a INNER JOIN Endereco AS e ON e.AssinanteID = a.AssinanteID
-                    INNER JOIN TipoAssinante AS ta ON a.AssinanteID = ta.TipoAssinanteID
-                    INNER JOIN Telefone AS t ON t.EnderecoID = e.EnderecoID                    
+SELECT a.Nome, m.Descricao, t.DDD, t.NumeroTelefone, ta.Descricao
+FROM Assinante AS a INNER JOIN TipoAssinante AS ta ON a.TipoAssinanteID = ta.TipoAssinanteID
+                    INNER JOIN Endereco AS e ON e.AssinanteID = a.AssinanteID
                     INNER JOIN Municipio AS m ON e.MunicipioID = m.MunicipioID
+                    INNER JOIN Telefone AS t ON e.EnderecoID = t.EnderecoID
 WHERE ta.Descricao LIKE 'Comercial' AND (m.Descricao LIKE 'Natal' OR m.Descricao LIKE 'João Câmara');
-
-SELECT a.Nome, t.Descricao AS Tipo
-FROM Assinante AS a INNER JOIN TipoAssinante AS t ON a.TipoAssinanteID = t.TipoAssinanteID;
