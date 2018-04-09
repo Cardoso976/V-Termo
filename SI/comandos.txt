@@ -1,0 +1,3 @@
+cd "local onde estão os arquivos"
+copy /b "nome da foto" + "nome do arquivo zip" "nome do novo arquivo"
+
