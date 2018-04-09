@@ -12,7 +12,17 @@ SELECT e.Veiculo_Placa, v.Cor
 FROM Estaciona AS e INNER JOIN Veiculo AS v ON e.Veiculo_Placa = v.Placa
 WHERE Cod = 1;
 
--- 4, 5) Não tem campo, veiculo ano--
+-- 4) --
+ALTER TABLE Veiculo
+ADD AnoVeiculo DATETIME;
+SELECT e.Veiculo_Placa, v.AnoVeiculo
+FROM Estaciona AS e INNER JOIN Veiculo AS v ON e.Veiculo_Placa = v.Placa
+WHERE Cod = 1;
+
+-- 5) --
+SELECT v.Placa, v.AnoVeiculo, m.Desc_2
+FROM Veiculo AS v INNER JOIN Modelo AS m ON v.Modelo_CodMod = CodMod
+WHERE v.AnoVeiculo > 2000;
 
 -- 6) --
 SELECT p.Ender AS Endereço, e.dtEntrada AS DataEntrada, e.dtSaida AS DataSaida
