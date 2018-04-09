@@ -1,6 +1,6 @@
 -- a) --
 SELECT FuncionarioID, Nome, Salario, (Salario*1.03) AS SalarioComAumento
-From Funcionario;
+FROM Funcionario;
 
 -- b) --
 SELECT DISTINCT C.Nome, F.Bairro
@@ -33,7 +33,7 @@ SELECT Descricao, ROUND(Custo, 1) AS Custo, ROUND(Venda, 1) AS Venda
 From Produto;
 
 -- h) --
-SELECT LEFT(Sigla, 1)
+SELECT LOWER(LEFT(Sigla, 1))
 FROM Setor;
 
 -- i) --
