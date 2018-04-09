@@ -9,11 +9,12 @@ FROM Assinante AS a INNER JOIN RamoAtividade AS r ON a.RamoID = r.RamoID
 ORDER BY r.Descricao, a.Nome ;
 
 -- c) --
-SELECT a.Nome, t.Descricao AS Tipo, m.Descricao
+SELECT a.Nome, r.Descricao AS Ramo, t.Descricao AS Tipo, m.Descricao
 FROM Assinante AS a INNER JOIN TipoAssinante AS t ON a.TipoAssinanteID = t.TipoAssinanteID
                     INNER JOIN Endereco AS e ON e.AssinanteID = a.AssinanteID
                     INNER JOIN Municipio AS m ON e.MunicipioID = m.MunicipioID
-WHERE m.Descricao LIKE 'Pelotas';
+                    INNER JOIN RamoAtividade AS r ON a.RamoID = r.RamoID
+WHERE t.Descricao LIKE 'Residencial' AND m.Descricao LIKE 'Pelotas';
 
 -- d) --
 SELECT a.Nome
@@ -23,7 +24,7 @@ GROUP BY a.Nome
 HAVING COUNT(*) > 1;
 
 -- e) --
-SELECT a.Nome, m.Descricao, t.DDD, t.NumeroTelefone, ta.Descricao
+SELECT a.Nome, t.DDD, t.NumeroTelefone, ta.Descricao AS TipoAssinante
 FROM Assinante AS a INNER JOIN TipoAssinante AS ta ON a.TipoAssinanteID = ta.TipoAssinanteID
                     INNER JOIN Endereco AS e ON e.AssinanteID = a.AssinanteID
                     INNER JOIN Municipio AS m ON e.MunicipioID = m.MunicipioID
