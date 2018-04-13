@@ -1,5 +1,5 @@
 -- a) --
-SELECT FuncionarioID, Nome, Salario, (Salario*1.03) AS SalarioComAumento
+SELECT FuncionarioID, Nome, Salario, (Salario*1.3) AS SalarioComAumento
 FROM Funcionario;
 
 -- b) --
@@ -21,7 +21,8 @@ FROM Funcionario;
 -- f) --
 -- Não Funciona no MYSQL --
 SELECT TOP 50 PERCENT *
-FROM Pedido;
+FROM Pedido
+ORDER BY DataPedido DESC;
 -- Funciona --
 -- SELECT * --
 -- FROM Pedido --
