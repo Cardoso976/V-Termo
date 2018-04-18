@@ -1,5 +1,5 @@
 -- a) --
-SELECT a.Nome, e.Descricao AS Endereco, e.Bairro, e.CEP, e.Complemento, t.DDD, t.NumeroTelefone
+SELECT a.Nome, e.*, t.*
 FROM Assinante AS a INNER JOIN Endereco AS e ON e.AssinanteID = a.AssinanteID
                     LEFT JOIN Telefone AS t ON t.EnderecoID = e.EnderecoID;
 
