@@ -1,0 +1,57 @@
+- 1ª Apostila -
+	
+-> Historia da internet
+	
+-> Como começou a internet
+
+	
+
+- 2ª Apostila - 
+	
+-> ISP oque é? Cada zona ?
+	
+-> Organização e padronização
+	
+-> Backbone oque é?
+
+ //É a espinha dorsal, canais de comunicaçao entre os ISPs.	
+
+- 3ª Apostila -
+	
+-> Classificassão das redes? os 4 conceitos
+	
+-> Tecnologia
+	
+-> Lan, man, wan
+	
+-> Broadcast, Unicast...
+	
+-> Topologia
+	-> formas de transmissão
+	
+-> comunicão de pacotes
+
+	
+
+- 4ª Apostila - 	
+	
+-> tcp(o cara que confere se chegou) e 
+	
+-> ip(o cara que envia mais se não chegou os pacotes não é problema dele) 
+	
+-> caracteristicas iniciais
+	
+-> Protocolos de camada (quais são e suas funções)
+	
+-> icmp, UDP, RiP, http, smtp, smmp, dns 
+
+	
+
+- 5º Apostila -
+	
+-> Faixas reservadas (Saber classes a, b, c e d a onde começa e onde termina)
+
+	
+- Pratica - 
+	
+-> Confiugurar rede
