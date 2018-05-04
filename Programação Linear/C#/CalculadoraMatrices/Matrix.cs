@@ -98,7 +98,6 @@ namespace CalculadoraMatrices
                 for (int i = 0; i < m.GetLength(0); i++)
                 {
                     determinante += (decimal)Math.Pow(-1, i) * m[i, 0] * Determinante(ElimFilCol(m, i, 0));
-                    Console.WriteLine("\nOla" + i);
                 }
             }
 
