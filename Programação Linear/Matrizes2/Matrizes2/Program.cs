@@ -54,7 +54,28 @@ namespace Matrizes2
                         GerarMatriz();
 
                         Matriz matriz2 = new Matriz(_operando1);
-                        Console.WriteLine("Solução [{0}]", string.Join(", ", matriz2.Cramer(_vetorFinais).ToList()));
+
+                        var test = false;
+                        foreach (var item in matriz2.Cramer(_vetorFinais))
+                        {
+                            if (item == 0)
+                                test = true;
+                            else
+                                break;
+                        }
+
+                        try
+                        {
+                            if(test)
+                            Console.WriteLine("Solução SPI [{0}]", string.Join(", ", matriz2.Cramer(_vetorFinais).ToList()));
+                            else
+                            Console.WriteLine("Solução SPD [{0}]", string.Join(", ", matriz2.Cramer(_vetorFinais).ToList()));
+                        }
+                        catch (DivideByZeroException e)
+                        {
+                            Console.WriteLine("SI");
+                           // throw;
+                        }
                         break;
                 }
             } while (_operador != 0);

@@ -112,7 +112,7 @@ namespace Matrizes2
             for (int j = 0; j < matriz.GetLength(1); j++)
             {
                 if (determinante == 0)
-                    break;
+                   throw new System.DivideByZeroException();
                 solucoes[j] = Determinante(SubsCol(matriz, finais, j)) / determinante;
             }
             return solucoes;
