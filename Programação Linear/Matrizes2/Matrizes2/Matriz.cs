@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Text;
 
@@ -12,28 +13,6 @@ namespace Matrizes2
         public Matriz(decimal[,] matriz)
         {
             this.matriz = matriz;
-        }
-
-        private decimal[,] ElimFilCol(decimal[,] a, int fila, int column)
-        {
-            decimal[,] result = new decimal[a.GetLength(0) - 1, a.GetLength(1) - 1];
-            bool fil = false;
-            bool col = false;
-            for (int i = 0; i < result.GetLength(0); i++)
-            {
-                col = false;
-                if (i == fila) { fil = true; }
-                for (int j = 0; j < result.GetLength(1); j++)
-                {
-                    if (j == column) { col = true; }
-                    if (!fil && !col) { result[i, j] = a[i, j]; }
-                    if (!fil && col) { result[i, j] = a[i, j + 1]; }
-                    if (fil && !col) { result[i, j] = a[i + 1, j]; }
-                    if (fil && col) { result[i, j] = a[i + 1, j + 1]; }
-
-                }
-            }
-            return result;
         }
 
         private static decimal[,] ElimFilCol(int rowToRemove, int columnToRemove, decimal[,] originalArray)
@@ -109,11 +88,32 @@ namespace Matrizes2
 
             decimal determinante = Determinante(matriz);
 
-            for (int j = 0; j < matriz.GetLength(1); j++)
+            var test = false;
+
+            for (int i = 0; i < matriz.GetLength(1); i++)
             {
-                if (determinante == 0)
-                   throw new System.DivideByZeroException();
-                solucoes[j] = Determinante(SubsCol(matriz, finais, j)) / determinante;
+                solucoes[i] = Determinante(SubsCol(matriz, finais, i));
+            }
+
+            foreach (var item in solucoes)
+            {
+                if (item != 0)
+                {
+                    test = true;
+                    break;
+                }
+            }
+
+            if (!test && determinante != 0)
+            {
+                for (int j = 0; j < matriz.GetLength(1); j++)
+                {
+                    solucoes[j] = Determinante(SubsCol(matriz, finais, j)) / determinante;
+                }
+            }
+            if(test && determinante == 0)
+            {
+                throw new DivideByZeroException();
             }
             return solucoes;
         }

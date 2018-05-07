@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
 using System.Linq;
 
 namespace Matrizes2
@@ -30,7 +27,7 @@ namespace Matrizes2
                         Console.WriteLine("Digite a ordem da matriz");
                         _ordemMatriz = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
 
-                        Console.WriteLine();
+                        Console.WriteLine("Digite os numeros da Matriz");
                         GerarMatriz();
 
                         Matriz matriz = new Matriz(_operando1);
@@ -50,31 +47,27 @@ namespace Matrizes2
                             _vetorFinais[i] = int.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
                         }
 
-                        Console.WriteLine();
+                        Console.WriteLine("Digite os numeros da Matriz");
                         GerarMatriz();
 
                         Matriz matriz2 = new Matriz(_operando1);
-
-                        var test = false;
-                        foreach (var item in matriz2.Cramer(_vetorFinais))
-                        {
-                            if (item == 0)
-                                test = true;
-                            else
-                                break;
-                        }
+                        
 
                         try
                         {
-                            if(test)
-                            Console.WriteLine("Solução SPI [{0}]", string.Join(", ", matriz2.Cramer(_vetorFinais).ToList()));
-                            else
-                            Console.WriteLine("Solução SPD [{0}]", string.Join(", ", matriz2.Cramer(_vetorFinais).ToList()));
+                            var validacao = true;
+                            decimal[] solucao = matriz2.Cramer(_vetorFinais);
+                            foreach (var item in solucao)
+                            {
+                                if (item != 0)
+                                    validacao = false;
+                            }
+                            Console.WriteLine(!validacao ? "Solução SPD [{0}]" : "Solução SPI [{0}]",
+                                string.Join(",", solucao.ToList()));
                         }
                         catch (DivideByZeroException e)
                         {
                             Console.WriteLine("SI");
-                           // throw;
                         }
                         break;
                 }
@@ -86,15 +79,24 @@ namespace Matrizes2
 
         private static void GerarMatriz()
         {
-            Random random = new Random();
+            //Random random = new Random();
             _operando1 = new decimal[_ordemMatriz, _ordemMatriz];
 
-
+            //Obter Matriz
             for (int i = 0; i < _operando1.GetLength(0); i++)
             {
                 for (int j = 0; j < _operando1.GetLength(1); j++)
                 {
-                    _operando1[i, j] = random.Next(5) + 1;
+                    _operando1[i, j] = decimal.Parse(Console.ReadLine() ?? throw new InvalidOperationException());
+                }
+            }
+
+            //Imprimir Matriz
+            Console.WriteLine();
+            for (int i = 0; i < _operando1.GetLength(0); i++)
+            {
+                for (int j = 0; j < _operando1.GetLength(1); j++)
+                {
                     Console.Write(_operando1[i, j] + " ");
                 }
                 Console.WriteLine();
