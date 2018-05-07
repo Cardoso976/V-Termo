@@ -74,15 +74,20 @@ namespace Matrizes
                         matriz = new int[ordemMatriz, ordemMatriz];
                         Console.Write("\n\nMatriz Simetrica:\n\n");
                         for (var i = 0; i < ordemMatriz; i++)
-                        {
-                            for (var j = 0; j < ordemMatriz; j++)
                             {
-                                matriz[i, j] = rdn.Next(0, 10);
-                                Console.Write(matriz[i, j] + " ");
+                                for (var j = 0; j < ordemMatriz; j++)
+                                {
+                                    if (i == j)
+                                        matriz[i, j] = rdn.Next(0, 10);
+                                    else
+                                    {
+                                        matriz[i, j] = rdn.Next(0, 10);
+                                        matriz[j, i] = rdn.Next(0, 10);
+                                    }
+                                    Console.Write(matriz[i, j] + " ");
+                                }
+                                Console.Write("\n");
                             }
-
-                            Console.Write("\n");
-                        }
 
                         break;
                     case 4:
@@ -94,9 +99,9 @@ namespace Matrizes
                         matriz = new int[linhasMatriz, colunaMatriz];
                         var matrizt = new int[colunaMatriz, linhasMatriz];
                         Console.Write("\n\nMatriz:\n\n");
-                        for (var i = 0; i < colunaMatriz; i++)
+                        for (var i = 0; i < linhasMatriz; i++)
                         {
-                            for (var j = 0; j < linhasMatriz; j++)
+                            for (var j = 0; j < colunaMatriz; j++)
                             {
                                 matriz[i, j] = rdn.Next(0, 10);
                                 Console.Write(matriz[i, j] + " ");
