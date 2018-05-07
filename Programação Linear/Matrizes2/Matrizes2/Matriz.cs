@@ -1,8 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
 
 namespace Matrizes2
 {
@@ -97,14 +93,14 @@ namespace Matrizes2
 
             foreach (var item in solucoes)
             {
-                if (item != 0)
+                if (item == 0)
                 {
                     test = true;
                     break;
                 }
             }
 
-            if (!test && determinante != 0)
+            if (test == false && determinante != 0)
             {
                 for (int j = 0; j < matriz.GetLength(1); j++)
                 {
