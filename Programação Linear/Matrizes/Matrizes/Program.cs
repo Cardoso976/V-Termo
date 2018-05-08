@@ -6,7 +6,7 @@ namespace Matrizes
     {
         private static void Main(string[] args)
         {
-            Random rdn = new Random();
+            Random random = new Random();
             Console.WriteLine("\nTrabalho de Programação: Matrizes");
             int selecao;
             do
@@ -38,7 +38,7 @@ namespace Matrizes
                             for (var j = 0; j < ordemMatriz; j++)
                             {
                                 if (i == j)
-                                    matriz[i, j] = rdn.Next(0, 10);
+                                    matriz[i, j] = random.Next(0, 10);
                                 else
                                     matriz[i, j] = 0;
                                 Console.Write(matriz[i, j] + " ");
@@ -74,20 +74,28 @@ namespace Matrizes
                         matriz = new int[ordemMatriz, ordemMatriz];
                         Console.Write("\n\nMatriz Simetrica:\n\n");
                         for (var i = 0; i < ordemMatriz; i++)
+                        {
+                            for (var j = i; j < ordemMatriz; j++)
                             {
-                                for (var j = 0; j < ordemMatriz; j++)
+                                if (i == j)
+                                    matriz[i, j] = random.Next(0, 10);
+                                else
                                 {
-                                    if (i == j)
-                                        matriz[i, j] = rdn.Next(0, 10);
-                                    else
-                                    {
-                                        matriz[i, j] = rdn.Next(0, 10);
-                                        matriz[j, i] = rdn.Next(0, 10);
-                                    }
-                                    Console.Write(matriz[i, j] + " ");
+                                    matriz[i, j] = random.Next(0, 10);
+                                    matriz[j, i] = matriz[i, j];
                                 }
-                                Console.Write("\n");
                             }
+                        }
+
+                        //Imprimir Matriz
+                        for (int i = 0; i < ordemMatriz; i++)
+                        {
+                            for (int j = 0; j < ordemMatriz; j++)
+                            {
+                                Console.Write(matriz[i, j] + " ");
+                            }
+                            Console.Write("\n");
+                        }
 
                         break;
                     case 4:
@@ -103,7 +111,7 @@ namespace Matrizes
                         {
                             for (var j = 0; j < colunaMatriz; j++)
                             {
-                                matriz[i, j] = rdn.Next(0, 10);
+                                matriz[i, j] = random.Next(0, 10);
                                 Console.Write(matriz[i, j] + " ");
                             }
 
@@ -134,7 +142,7 @@ namespace Matrizes
                         {
                             for (var j = 0; j < linhasMatriz; j++)
                             {
-                                matriza[i, j] = rdn.Next(0, 10);
+                                matriza[i, j] = random.Next(0, 10);
                                 Console.Write(matriza[i, j] + " ");
                             }
 
@@ -145,7 +153,7 @@ namespace Matrizes
                         {
                             for (var j = 0; j < linhasMatriz; j++)
                             {
-                                matrizb[i, j] = rdn.Next(0, 10);
+                                matrizb[i, j] = random.Next(0, 10);
                                 Console.Write(matrizb[i, j] + " ");
                             }
 
@@ -175,7 +183,7 @@ namespace Matrizes
                         {
                             for (var j = 0; j < linhasMatriz; j++)
                             {
-                                matriza[i, j] = rdn.Next(0, 10);
+                                matriza[i, j] = random.Next(0, 10);
                                 Console.Write(matriza[i, j] + " ");
                             }
 
@@ -186,7 +194,7 @@ namespace Matrizes
                         {
                             for (var j = 0; j < linhasMatriz; j++)
                             {
-                                matrizb[i, j] = rdn.Next(0, 10);
+                                matrizb[i, j] = random.Next(0, 10);
                                 Console.Write(matrizb[i, j] + " ");
                             }
 
@@ -217,7 +225,7 @@ namespace Matrizes
                         {
                             for (var j = 0; j < linhasMatriz; j++)
                             {
-                                matriza[i, j] = rdn.Next(0, 10);
+                                matriza[i, j] = random.Next(0, 10);
                                 Console.Write(matriza[i, j] + " ");
                             }
 
@@ -257,7 +265,7 @@ namespace Matrizes
                             {
                                 for (var j = 0; j < colunaMatriz; j++)
                                 {
-                                    matriza[i, j] = rdn.Next(0, 10);
+                                    matriza[i, j] = random.Next(0, 10);
                                     Console.Write(matriza[i, j] + " ");
                                 }
 
@@ -269,7 +277,7 @@ namespace Matrizes
                             {
                                 for (var j = 0; j < colunaMatrizb; j++)
                                 {
-                                    matrizb[i, j] = rdn.Next(0, 10);
+                                    matrizb[i, j] = random.Next(0, 10);
                                     Console.Write(matrizb[i, j] + " ");
                                 }
 
