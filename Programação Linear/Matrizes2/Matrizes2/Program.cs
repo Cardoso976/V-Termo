@@ -16,7 +16,7 @@ namespace Matrizes2
             {
 
 
-                Console.WriteLine("Digite a opcao desejada");
+                Console.WriteLine("\nDigite a opcao desejada");
                 Console.WriteLine("1 - Determinante");
                 Console.WriteLine("2 - Sistemas Lineares - Cramer");
 
@@ -33,6 +33,7 @@ namespace Matrizes2
                         Matriz matriz = new Matriz(_operando1);
 
                         Console.WriteLine("\nDeterminante: " + matriz.Determinante());
+                        Console.WriteLine();
                         break;
 
                     case 2:
