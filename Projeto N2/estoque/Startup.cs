@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using estoque.Core;
 
 namespace Estoque
 {
@@ -24,6 +25,7 @@ namespace Estoque
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddDbContext<EstoqueDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
             services.AddMvc();
