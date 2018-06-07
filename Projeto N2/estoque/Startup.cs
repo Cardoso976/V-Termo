@@ -27,7 +27,7 @@ namespace Estoque
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddDbContext<EstoqueDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
-
+            
             services.AddMvc();
         }
 
