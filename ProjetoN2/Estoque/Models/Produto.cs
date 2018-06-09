@@ -28,15 +28,11 @@ namespace Estoque.Models
         [Required(ErrorMessage = "Preencha a quantidade em estoque.")]
         public int QuantEstoque { get; set; }
 
+        [Required(ErrorMessage = "Selecione a unidade de medida.")]
         public UnidadeMedida UnidadeMedida { get; set; }
 
-        [Required(ErrorMessage = "Selecione a unidade de medida.")]
-        public int IdUnidadeMedida { get; set; }   
-
-        public Marca Marca { get; set; }     
-
         [Required(ErrorMessage = "Selecione a marca.")]
-        public int IdMarca { get; set; }                
+        public Marca Marca { get; set; }              
 
         public bool Ativo { get; set; }
 
