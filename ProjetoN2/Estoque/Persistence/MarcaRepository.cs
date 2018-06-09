@@ -18,5 +18,20 @@ namespace Estoque.Persistence
         {
             return await context.Marcas.ToListAsync();
         }
+        
+        public async Task<Marca> GetMarca(int id)        
+        {
+            return await context.Marcas.FindAsync(id);
+        }
+
+        public void Add(Marca marca)
+        {
+            context.Marcas.Add(marca);
+        }
+
+        public void Remove(Marca marca)
+        {
+            context.Marcas.Remove(marca);
+        }
     }
 }
