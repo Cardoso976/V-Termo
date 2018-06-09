@@ -1,4 +1,4 @@
-using Estoque.Models;
+using Estoque.Core.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Estoque.Persistence

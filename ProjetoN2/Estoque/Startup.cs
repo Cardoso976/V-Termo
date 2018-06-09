@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Estoque.Core;
+using Estoque.Core.Models;
 using Estoque.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,6 +27,7 @@ namespace Estoque
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IMarcaRepository, MarcaRepository>();
             services.AddAutoMapper();
 
             services.AddDbContext<EstoqueDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));

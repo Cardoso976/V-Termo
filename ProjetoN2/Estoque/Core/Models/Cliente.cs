@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 
-namespace Estoque.Models
+namespace Estoque.Core.Models
 {
     public class Cliente
     {

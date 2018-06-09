@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Estoque.Models
+namespace Estoque.Core.Models
 {
     [Table("Vendas")]
     public class ProdutoCliente

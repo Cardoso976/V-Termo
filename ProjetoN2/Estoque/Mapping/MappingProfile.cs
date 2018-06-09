@@ -1,6 +1,6 @@
 using AutoMapper;
 using Estoque.Controllers.Resource;
-using Estoque.Models;
+using Estoque.Core.Models;
 
 namespace Estoque.Mapping
 {
