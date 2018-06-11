@@ -17,6 +17,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { MarcaFormComponent } from './components/marca-form/marca-form.component';
 import { ViewMarcaComponent } from './components/view-marca/view-marca.component';
+import { MarcaListComponent } from './components/marca-list/marca-list.component';
 
 Raven
   .config('https://fea869838b90474aaa0dfb21e1bcad0f@sentry.io/1222781')
@@ -31,7 +32,8 @@ Raven
         FetchDataComponent,
         HomeComponent,
         MarcaFormComponent,
-        ViewMarcaComponent
+        ViewMarcaComponent,
+        MarcaListComponent
     ],
     imports: [
         CommonModule,
@@ -42,8 +44,9 @@ Raven
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'marcas/new', component: MarcaFormComponent },
-            { path: 'marcas/edit/{id}', component: MarcaFormComponent },
-            //{ path: 'marcas', component: MarcaFormComponent },
+            { path: 'marcas/edit/:id', component: MarcaFormComponent },
+            { path: 'marcas/:id', component: ViewMarcaComponent },
+            { path: 'marcas', component: MarcaListComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: '**', redirectTo: 'home' }

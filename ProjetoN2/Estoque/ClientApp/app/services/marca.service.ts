@@ -14,12 +14,22 @@ export class MarcaService {
   }
 
   getMarca(id: any){
-    return this.http.get(this.marcasEndpoint + '/', id)
+    return this.http.get(this.marcasEndpoint + '/' + id)
       .map(res => res.json());
   }
 
   create(marca: any){
     return this.http.post(this.marcasEndpoint, marca)
+      .map(res => res.json());
+  }
+
+  update(id: any, marca: any){
+    return this.http.put(this.marcasEndpoint+ '/' + id, marca)
+      .map(res => res.json());
+  }
+
+  delete(id: any){
+    return this.http.delete(this.marcasEndpoint + '/' + id)
       .map(res => res.json());
   }
 
