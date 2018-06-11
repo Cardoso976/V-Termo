@@ -29,6 +29,7 @@ namespace Estoque
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IMarcaRepository, MarcaRepository>();
+            services.AddScoped<IUnidadeMedidaRepository, UnidadeMedidaRepository>();
             services.AddAutoMapper();
 
             services.AddDbContext<EstoqueDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
