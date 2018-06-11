@@ -1,5 +1,6 @@
 
 export interface marca {
     id: number,
-    nome: string
+    nome: string,
+    ativo: boolean
 }

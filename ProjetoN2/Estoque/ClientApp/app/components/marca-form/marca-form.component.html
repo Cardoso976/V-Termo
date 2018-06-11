@@ -2,19 +2,19 @@
 <p>
   {{marca | json}}
 </p>
-<form>
+<form (ngSubmit)="submit()">
   <div class="form-group">
     <br>
-    <label for="marca">Marca</label>
-    <input id="marca" type="text" class="form-control">
+    <label for="nome">Marca</label>
+    <input id="nome" type="text" class="form-control" [(ngModel)]="marca.nome" name="nome" required #marcaNome="ngModel">
   </div>
   <p>A marca esta ativa?</p>
   <label for="ativo" class="radio-inline">
-    <input type="radio" name="ativo" id="ativo" [value]="true"> Sim
+    <input type="radio" name="ativo" id="ativo" [value]="true" [(ngModel)]="marca.ativo"> Sim
   </label>
   <label for="notAtivo" class="radio-inline">
-    <input type="radio" name="ativo" id="notAtivo" [value]="false"> Não
+    <input type="radio" name="ativo" id="notAtivo" [value]="false" [(ngModel)]="marca.ativo"> Não
   </label>
   <br><br>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button class="btn btn-primary">Save</button>
 </form>
