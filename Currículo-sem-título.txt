@@ -1,0 +1,33 @@
+-
+Rodrigo Cardoso
+rodrigo.cardoso97@icloud.com
+E-mail
+Rua. Maceió 407, Garça, SP, Brasil
+Endereço
+14 99191-2061
+Telefone
+- Objetivo
+Programador Web - Cargo de interesse
+- Experiência
+Webmaster
+MERCADO FISICO RURAL - COMERCIO DE PRODUTOS AGROPECUARIOS LTDA - ME
+Marília, SP
+Junho-2018  - Atualmente
+Estagiario
+Prefeitura Municipal de Garça
+Garça, SP
+Agosto-2016  - Junho-2017
+- Educação
+Tecnologia em Análise e Desenvolvimento de Sistemas
+Faculdade de Tecnologia "Dep. Júlio Marcondes de Moura"
+Fevereiro - 2015 - Atualmente
+- Habilidades
+ASP.NET MVC
+Entity Framework
+C#
+HTML
+CSS
+JavaScript (JQuery)
+Angular 2
+Git
+SQL
